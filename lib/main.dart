@@ -40,9 +40,15 @@ class _CheckUserState extends State<CheckUser> {
   CheckUser() async {
     User? user = await FirebaseAuth.instance.currentUser;
     if (user != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => HomeScreen()),
+      );
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => LoginScreen()),
+      );
     }
   }
 }
